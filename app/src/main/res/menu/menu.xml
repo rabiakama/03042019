@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/popular_movies"
+            android:title="PopularMovies"
+            tools:ignore="HardcodedText"/>
+
+    <item
+            android:id="@+id/upcoming_movies"
+            android:title="Upcoming Movies"
+            tools:ignore="HardcodedText"/>
+
+    <item
+            android:id="@+id/top_rated_movies"
+            android:title="Top Rated Movies"
+            tools:ignore="HardcodedText"/>
+    <item
+            android:id="@+id/my_favorite_movies"
+            android:title="My Favorite Movies"
+            tools:ignore="HardcodedText"/>
+    <item
+            android:id="@+id/search_movies"
+            android:title="Search a Movie"
+            tools:ignore="HardcodedText"/>
+
+
+
+</menu>
