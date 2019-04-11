@@ -1,9 +1,11 @@
 package com.example.asus.a03042019.model
 
+enum class VideoTypes {
+    Trailer, Teaser, Clip, Featurette
+}
 
 data class Videos (
-    val id: String? = null,
-    val name: String? = null,
-    val url: String? = null,
-    val results:List<Videos>
+    val key: String? = null,
+    val type: String? = null,
+    val site: String? = null
 )

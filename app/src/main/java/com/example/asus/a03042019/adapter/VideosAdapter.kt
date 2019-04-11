@@ -28,7 +28,8 @@ class VideosAdapter (private val videolist: List<Videos>, private val callback: 
 
         fun bind(video: Videos, callback: (Videos) -> Unit) {
             with(itemView) {
-                details_video_title.text = video.name
+                details_video_title.text = video.type
+                //video.name
                 setOnClickListener { callback(video) }
             }
         }

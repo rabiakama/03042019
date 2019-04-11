@@ -6,17 +6,50 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.asus.a03042019.R
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MoviesAdapter (var context: Context, var movielist:List<Movies>): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+class MoviesAdapter (var context: Context, var movielist: ArrayList<Movies>): RecyclerView.Adapter<MoviesAdapter.ViewHolder>(),Filterable {
+   private var movlist: MutableList<Movies>?=null
+
+    override fun getFilter(): Filter {
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charString = constraint.toString()
+                if (charString.isEmpty()) {
+                    movielist = movlist as ArrayList<Movies>
+                }else{
+                        val filteredList = ArrayList<Movies>()
+                        for (row in movlist!!)
+                        {
+                            if (row.getTitle()!!.toLowerCase().contains(charString.toLowerCase())) {
+                                filteredList.add(row)
+                            }
+                        }
+                    movielist=filteredList
+                }
+                val filterResults = Filter.FilterResults()
+                filterResults.values = movielist
+                return filterResults
+            }
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, filterResult: FilterResults) {
+                movielist = filterResult.values   as ArrayList<Movies>
+                notifyDataSetChanged()
+            }
+
+        }
+    }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindTo(movielist[position])
     }
 
-    fun setMovies(movie: List<Movies>) {
+     fun setMovies(movie: ArrayList<Movies>) {
         movielist = movie
         notifyDataSetChanged()
     }

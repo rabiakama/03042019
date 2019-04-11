@@ -1,9 +1,6 @@
 package com.example.asus.a03042019.service
 
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 
@@ -20,6 +17,7 @@ object Client {
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
+
             }
             return retrofit
         }

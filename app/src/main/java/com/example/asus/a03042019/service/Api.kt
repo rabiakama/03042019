@@ -2,10 +2,10 @@ package com.example.asus.a03042019.service
 
 import com.example.asus.a03042019.model.*
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import io.reactivex.Observable
 import java.util.*
 
 interface Api {
@@ -28,7 +28,7 @@ interface Api {
         @Query("language") language: String,
         @Query("page") page: Long,
         @Query("region") region: String
-    ): Call<UpcomingMoviesResponse>
+    ): Call<MoviesResponse>
 
     @GET("movie/popular")
     fun getPopularMovies(
@@ -36,7 +36,7 @@ interface Api {
         @Query("language") language: String,
         @Query("page") page: Long,
         @Query("region") region: String
-    ): Call<PopularMoviesResponse>
+    ): Call<MoviesResponse>
 
     @GET("movie/top_rated")
     fun getTopRatedMovies(
@@ -44,7 +44,7 @@ interface Api {
         @Query("language") language: String,
         @Query("page") page: Long,
         @Query("region") region: String
-    ): Call<TopRatedMoviesResponse>
+    ): Call<MoviesResponse>
 
     @GET("/account/{account_id}/favorite/movies")
     fun getFavoriteMovies(
@@ -53,12 +53,20 @@ interface Api {
         @Query("language") language: String,
         @Query("sort_by") sortBy: String,
         @Query("page") page:Int
-    ):Call<FavoriteMoviesResponse>
+    ):Call<MoviesResponse>
 
     @GET("movie/{id}")
     fun getMovie(
-        @Path("id") id: Long,
+        //@Path("id") id: Long,
         @Query("api_key") apiKey: String,
         @Query("language") language: String
     ): Call<MoviesResponse>
+
+    @GET("movie/search")
+    fun searchMovie(
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String,
+        @Query("page") page: Int
+    ): Call<MoviesResponse>
+
 }

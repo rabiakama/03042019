@@ -2,13 +2,14 @@ package com.example.asus.a03042019.model
 
 import com.google.gson.annotations.SerializedName
 
+
 class Movies {
     @SerializedName("poster_path")
-    private var posterPath: String? = null
+    private lateinit var posterPath: String
     @SerializedName("adult")
     private var adult: Boolean = false
     @SerializedName("overview")
-    private var overview: String? = null
+    private lateinit var overview: String
     @SerializedName("release_date")
     private var releaseDate: String? = null
     @SerializedName("genre_ids")
@@ -18,7 +19,7 @@ class Movies {
     @SerializedName("original_title")
     private var originalTitle: String? = null
     @SerializedName("original_language")
-    private var originalLanguage: String? = null
+    private var originalLanguage:String?=null
     @SerializedName("title")
     private var title: String? = null
     @SerializedName("backdrop_path")
@@ -28,9 +29,10 @@ class Movies {
     @SerializedName("vote_count")
     private var voteCount: Int? = null
     @SerializedName("video")
-    private var video: Boolean? = null
+    private var video: VideosResponse? = null
     @SerializedName("vote_average")
     private var voteAverage: Double? = null
+
 
     fun getPosterPath(): String? {
         return posterPath
@@ -128,11 +130,11 @@ class Movies {
         this.voteCount = voteCount
     }
 
-    fun getVideo(): Boolean? {
+    fun getVideo(): VideosResponse? {
         return video
     }
 
-    fun setVideo(video: Boolean?) {
+    fun setVideo(video: VideosResponse?) {
         this.video = video
     }
 
