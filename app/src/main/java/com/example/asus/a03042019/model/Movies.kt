@@ -29,7 +29,7 @@ class Movies {
     @SerializedName("vote_count")
     private var voteCount: Int? = null
     @SerializedName("video")
-    private var video: VideosResponse? = null
+    private var video: Boolean = false
     @SerializedName("vote_average")
     private var voteAverage: Double? = null
 
@@ -130,11 +130,11 @@ class Movies {
         this.voteCount = voteCount
     }
 
-    fun getVideo(): VideosResponse? {
+    fun getVideo(): Boolean {
         return video
     }
 
-    fun setVideo(video: VideosResponse?) {
+    fun setVideo(video: Boolean) {
         this.video = video
     }
 

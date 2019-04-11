@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        repository = Repository(Client.getClient()!!.create(Api::class.java))
         if (savedInstanceState != null) {
 
             displayData()
@@ -118,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             recylerView_main.layoutManager = GridLayoutManager(this, 4)
         }
         recylerView_main.itemAnimator = DefaultItemAnimator()
-        recylerView_main.adapter = moviesAdapter
+        //recylerView_main.adapter = moviesAdapter
         loadJson()
     }
 
@@ -197,23 +198,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadJson() {
-
         try {
-            val apiInterface: Api = Client.getClient()!!.create(Api::class.java)
-            val call: Call<MoviesResponse> =
-                apiInterface.getMovie(apiKey = "534bc4143a626777d62c7d1ab8697aba", language = "en")
-            call.enqueue(object : Callback<MoviesResponse> {
+            repository.getPopularMovies().enqueue(object : Callback<MoviesResponse> {
                 override fun onResponse(call: Call<MoviesResponse>, response: retrofit2.Response<MoviesResponse>) {
                     if (response.isSuccessful && response.body() != null) {
                         //var movies: List<Movies>? = response.body()?.results
-                        arraylistmovies.addAll(response.body()!!.results)
+                        arraylistmovies.addAll(response.body()!!.results!!)
                         recylerView_main.layoutManager =
                             LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+                        moviesAdapter = MoviesAdapter(arraylistmovies)
                         recylerView_main.adapter = moviesAdapter
                         recylerView_main.smoothScrollToPosition(0)
                     }
-                    recylerView_main.visibility = View.VISIBLE
-                    recylerView_main.visibility = View.INVISIBLE
+
                 }
 
                 override fun onFailure(call: retrofit2.Call<MoviesResponse>, t: Throwable) {

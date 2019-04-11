@@ -58,7 +58,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setMovieDetails(movie: Movies?) {
 
-        val trailer= movie?.getVideo()?.getYoutubeTrailer()
+        /*val trailer= movie?.getVideo()?.getYoutubeTrailer()
         if(trailer !=null){
             detailsPlayIv.visibility=View.VISIBLE
             constraint.setOnClickListener{
@@ -70,7 +70,7 @@ class DetailActivity : AppCompatActivity() {
         }}
         else{
             detailsPlayIv.visibility= View.GONE
-        }
+        }*/
     }
 
 
