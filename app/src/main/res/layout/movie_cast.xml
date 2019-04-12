@@ -23,7 +23,6 @@
             android:layout_marginStart="8dp"
             android:orientation="vertical"
             android:layout_marginLeft="8dp">
-
         <TextView
                 android:id="@+id/castCaracter"
                 android:layout_width="wrap_content"

@@ -50,30 +50,30 @@ class DetailActivity : AppCompatActivity() {
 //        details_back_drop.transitionName =getString(R.string.transition_name_details) + mMovie?.getId()
 //        details_back_drop.loadImage(getBackdropUrl(mMovie.getBackdropPath()))
 
-        setMovieDetails(mMovie)
+       // setMovieDetails(mMovie)
 
     }
 
 
 
-    private fun setMovieDetails(movie: Movies?) {
-
-        val trailer= movie?.getVideo()?.getYoutubeTrailer()
-        if(trailer !=null){
-            detailsPlayIv.visibility=View.VISIBLE
-            constraint.setOnClickListener{
-                val url= Uri.parse("https://www.youtube.com/watch?v=${trailer.key}")
-
-            startActivity(
-                Intent(Intent.ACTION_VIEW,url)
-            )
-        }}
-        else{
-            detailsPlayIv.visibility= View.GONE
-        }
+   // private fun setMovieDetails(movie: Movies?) {
+//
+//
+//        if(trailer !=null){
+//            detailsPlayIv.visibility=View.VISIBLE
+//            constraint.setOnClickListener{
+//                val url= Uri.parse("https://www.youtube.com/watch?v=${trailer.key}")
+//
+//            startActivity(
+//                Intent(Intent.ACTION_VIEW,url)
+//            )
+//        }}
+//        else{
+//            detailsPlayIv.visibility= View.GONE
+//        }
     }
 
 
-}
+//}
 
 

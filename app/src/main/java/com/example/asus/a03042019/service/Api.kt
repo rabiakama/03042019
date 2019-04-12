@@ -55,11 +55,12 @@ interface Api {
         @Query("page") page:Int
     ):Call<MoviesResponse>
 
-    @GET("movie/{id}")
+    @GET("movie/{movie_id}")
     fun getMovie(
         //@Path("id") id: Long,
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("page") page: Long
     ): Call<MoviesResponse>
 
     @GET("movie/search")

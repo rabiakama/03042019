@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--suppress ALL -->
 <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -49,15 +49,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/titleTextView"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="8dp"
                 android:layout_toEndOf="@id/posterImageView"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:textSize="14sp"
-                tools:text=" Comedy, Drama, Music"
-                android:layout_marginLeft="5dp"
-                android:layout_toRightOf="@id/posterImageView"
-                android:layout_marginTop="10dp"/>
+                tools:text="Drama, Romance, Thriller"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/posterImageView"/>
 
         <TextView
                 android:id="@+id/releaseDateTextView"
@@ -69,7 +68,7 @@
                 android:layout_toEndOf="@id/posterImageView"
                 android:textSize="12sp"
                 android:textStyle="italic"
-                tools:text="09/11/2016"
+                tools:text="19/11/2016"
                 android:layout_marginLeft="8dp"
                 android:layout_toRightOf="@id/posterImageView"/>
 
