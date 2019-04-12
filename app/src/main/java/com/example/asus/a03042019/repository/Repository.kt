@@ -4,8 +4,6 @@ package com.example.asus.a03042019.repository
 import com.example.asus.a03042019.service.Api
 
 
-
-
 class Repository(private val api: Api) {
 
 

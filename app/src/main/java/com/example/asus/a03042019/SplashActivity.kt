@@ -31,7 +31,6 @@ class SplashActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
-
         backgrond.start()
 
 
