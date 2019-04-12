@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        repository= Repository(Client.getClient()!!.create(Api::class.java))
+        repository = Repository(Client.getClient()!!.create(Api::class.java))
         if (savedInstanceState != null) {
 
             displayData()
